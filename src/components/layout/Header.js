@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom'
 
 export const Header = () => {
   return (
-    <Navbar bg="light" expand="md">
+    <Navbar bg="warning" expand="md">
       <Container>
-        <Navbar.Brand href="#home">FT-V2</Navbar.Brand>
+        <Navbar.Brand href="/">FT-V2</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
