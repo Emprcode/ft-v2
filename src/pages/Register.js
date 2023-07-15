@@ -35,7 +35,7 @@ const Register = () => {
     },
   ];
   return (
-    <MainLayout>
+    <>
       <Container>
         <Row className="mt-3">
           <h4 className="text-center"> Registration</h4>
@@ -58,7 +58,7 @@ const Register = () => {
           </Col>
         </Row>
       </Container>
-    </MainLayout>
+    </>
   );
 };
 
