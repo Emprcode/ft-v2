@@ -2,6 +2,7 @@ import React from "react";
 import { MainLayout } from "../components/layout/MainLayout";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import { FormComponents } from "../components/formComponents/FormComponents";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const inputs = [
@@ -35,30 +36,42 @@ const Register = () => {
     },
   ];
   return (
-    <>
+    <div className="bg-color">
       <Container>
-        <Row className="mt-3">
-          <h4 className="text-center"> Registration</h4>
+        <Row className="">
+          <div className="h4 p-4">
+            <Link to="/" className="nav-link ">
+              <i className="fa-solid fa-arrow-left"></i>
+            </Link>
+          </div>
+          <h2 className="text-center fw-bold p-5"> Registration</h2>
           <hr />
-          <Col className="info ">
+          {/* <Col className=" ">
             <h4> Welcome!</h4>
 
             <p> Please register here to use our system </p>
+          </Col> */}
+          <Col className="p-5 text-center ">
+            <div className="p-5">
+              <h3 className="fw-bold mb-3"> Welcome!</h3>
+
+              <p> Please register here to use our system </p>
+            </div>
           </Col>
-          <Col className="">
+          <Col className="p-5">
             <Form>
               {inputs.map((item, i) => (
                 <FormComponents key={i} {...item} />
               ))}
 
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
+              <div className="button bg-primary text-white mt-3" type="submit">
+                Register
+              </div>
             </Form>
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

@@ -7,15 +7,18 @@ export const Header = () => {
   return (
     <Navbar bg="" expand="md">
       <Container className="p-3">
-        <Navbar.Brand href="/" className="h1 fw-bold">
-          <h1 className="fw-bold"> Finance Tracker</h1>
+        <Navbar.Brand href="/">
+          <h2 className="logo"> Finance Tracker</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto h2">
+          <Nav className="ms-auto gap-4 h4">
             {/* <Link to="/" className='nav-link'><i className="fa-solid fa-user"></i></Link> */}
+            <Link to="/account" className="nav-link ">
+              <i className="fa-solid fa-user"></i>
+            </Link>
             <Link to="/logout" className="nav-link">
-              <i className="fa-solid fa-person-running"></i>
+              <i className="fa-solid fa-right-from-bracket"></i>
             </Link>
           </Nav>
         </Navbar.Collapse>

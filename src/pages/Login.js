@@ -22,29 +22,29 @@ const Login = () => {
     },
   ];
   return (
-    <>
-      <Container className="login d-flex justify-content-center align-items-center ">
+    <div className="bg-color">
+      <Container className="login d-flex justify-content-center align-items-center">
         <Row className="mt-3">
           {/* <h4 className="text-center"></h4> */}
           {/* <hr /> */}
-          <Col className="info p-5 text-center fw-bold shadow-lg ">
+          <Col className=" p-5 text-center fw-bold shadow-lg ">
             <div className="p-5">
-              <h1 className="fw-bold mb-3"> Finance Tracker</h1>
+              <h1 className=" title mb-3 fw-bold"> Finance Tracker</h1>
 
               <p> Please Login Here </p>
             </div>
           </Col>
-          <Col className="shadow-lg p-4 ">
+          <Col className=" p-5 shadow-lg  ">
             {/* <h4 className="mx-4 p-3 fw-bold">Login</h4> */}
-            <div className="p-3">
+            <div className="p-5">
               <Form>
                 {inputs.map((item, i) => (
                   <FormComponents key={i} {...item} />
                 ))}
 
-                <Button variant="primary" type="submit">
+                <div className="button bg-primary text-white mt-3" type="submit">
                   Submit
-                </Button>
+                </div>
                 <hr />
                 <div className="text-end">
                   {/* <h5> New User?</h5> */}
@@ -58,7 +58,7 @@ const Login = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

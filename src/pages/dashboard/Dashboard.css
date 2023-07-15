@@ -1,0 +1,48 @@
+/* .card1{
+    background: linear-gradient(to right, #ffbf96, #fe7096);
+background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+    
+ } */
+
+
+.contact {
+        background:linear-gradient(to right, #ffbf96, #fe7096),url(../../assets/image.png);
+        
+ }
+ 
+ .logo{
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .add-icon{
+    background: #64dab2a2;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .income-icon{
+    background: #dce4e18f;
+    color: green;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .expense-icon{
+    background: #dce4e18f;
+    color: red;
+    
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
