@@ -14,7 +14,7 @@ const Register = () => {
       required: true,
     },
     {
-      email: "email",
+      name: "email",
       type: "email",
       label: "Email",
       placeholder: "Jack@gmail.com",
@@ -44,13 +44,9 @@ const Register = () => {
               <i className="fa-solid fa-arrow-left"></i>
             </Link>
           </div>
-          <h2 className="text-center fw-bold p-5"> Registration</h2>
+          <h2 className="text-center fw-bold"> Registration</h2>
           <hr />
-          {/* <Col className=" ">
-            <h4> Welcome!</h4>
 
-            <p> Please register here to use our system </p>
-          </Col> */}
           <Col className="p-5 text-center ">
             <div className="p-5">
               <h3 className="fw-bold mb-3"> Welcome!</h3>
@@ -64,7 +60,7 @@ const Register = () => {
                 <FormComponents key={i} {...item} />
               ))}
 
-              <div className="button bg-primary text-white mt-3" type="submit">
+              <div className="button mt-3 " type="submit">
                 Register
               </div>
             </Form>

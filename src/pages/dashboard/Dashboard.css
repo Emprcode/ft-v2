@@ -6,10 +6,15 @@ background-image: url("https://www.transparenttextures.com/patterns/diagmonds-li
 
 
 .contact {
-        background:linear-gradient(to right, #ffbf96, #fe7096),url(../../assets/image.png);
-        /* background-color:linear-gradient(to right, #ffbf96, #fe7096); */
-        /* background-image:url(../../assets/image.png); */
-        
+        /* background:linear-gradient(to right, #ffbf96, #fe7096),url(https://www.transparenttextures.com/patterns/diagmonds-light.png); */
+        /* background-color:linear-gradient(to right, #ffbf96, #fe7096);
+        background-image:url(../../assets/image.png); */
+     
+            background-image: linear-gradient(to right, #ffbf96, #fe7096), url('../../assets/image.png');
+            background-size: cover;
+            /* Other background properties if needed */
+       
+          
  }
  
  .logo{

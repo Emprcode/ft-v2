@@ -32,13 +32,13 @@ const Dashboard = () => {
           </Col>
         </Row>
         {/* status display */}
-        <div className="d-flex justify-content-center p-5">
+        <div className="d-flex justify-content-center p-5 ">
           <Row className="p-3 rounded contact shadow-lg">
             <div>
               <div className="text-center">
                 <p className="p-2">Total Balance</p>
 
-                <h4 className="fw-bold"> $ 80,000.00</h4>
+                <h2 className="fw-bold"> $ 80,000.00</h2>
               </div>
             </div>
             <Row className="mt-5">

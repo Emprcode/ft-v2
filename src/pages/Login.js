@@ -24,17 +24,17 @@ const Login = () => {
   return (
     <div className="bg-color">
       <Container className="login d-flex justify-content-center align-items-center">
-        <Row className="mt-3">
+        <Row className="mt-3 shadow-lg  ">
           {/* <h4 className="text-center"></h4> */}
           {/* <hr /> */}
-          <Col className=" p-5 text-center fw-bold shadow-lg ">
+          <Col className=" p-5 text-center fw-bold">
             <div className="p-5">
               <h1 className=" title mb-3 fw-bold"> Finance Tracker</h1>
 
               <p> Please Login Here </p>
             </div>
           </Col>
-          <Col className=" p-5 shadow-lg  ">
+          <Col className="mx-4 p-5 ">
             {/* <h4 className="mx-4 p-3 fw-bold">Login</h4> */}
             <div className="p-5">
               <Form>
@@ -42,7 +42,7 @@ const Login = () => {
                   <FormComponents key={i} {...item} />
                 ))}
 
-                <div className="button bg-primary text-white mt-3" type="submit">
+                <div className="button mt-3" type="submit">
                   Submit
                 </div>
                 <hr />

@@ -17,7 +17,7 @@ export const Header = () => {
             <Link to="/account" className="nav-link ">
               <i className="fa-solid fa-user"></i>
             </Link>
-            <Link to="/logout" className="nav-link">
+            <Link to="/" className="nav-link">
               <i className="fa-solid fa-right-from-bracket"></i>
             </Link>
           </Nav>

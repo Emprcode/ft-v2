@@ -3,6 +3,7 @@ import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/dashboard/Dashboard';
+import AddTransaction from './pages/addTransaction/AddTransaction';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path ="/" element={<Login/>}/>
         <Route path ="/register" element={<Register/>}/>
         <Route path ="/dashboard" element={<Dashboard/>}/>
+        <Route path ="/add-transaction" element={<AddTransaction/>}/>
       </Routes>
       </BrowserRouter>
      
