@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Col, Container, Row } from "react-bootstrap";
@@ -7,6 +7,19 @@ import { Link } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
 
 const Dashboard = () => {
+  const [user, setuser] = useState({});
+
+  useEffect(() => {
+    const userStr = sessionStorage.getItem("user");
+    if (userStr) {
+      const userObj = JSON.parse(userStr);
+      setuser(userObj);
+    }
+  }, []);
+
+  const handleOnLogout = () => {
+    sessionStorage.removeItem("user");
+  };
   return (
     <MainLayout>
       <Container className="p-4">
@@ -17,7 +30,7 @@ const Dashboard = () => {
               <img src={avatar} alt="avatar" width="100px" height="90px" />
               <div className="mx-3">
                 <h4 className="">Welcome!</h4>
-                <h2 className="fw-bold"> John Doe</h2>
+                <h2 className="fw-bold"> {user?.username}</h2>
               </div>
             </div>
           </Col>
@@ -25,7 +38,7 @@ const Dashboard = () => {
             <Link
               to="/add-transaction"
               className="d-flex justify-content-end nav-link">
-              <span className="mt-2 h3 add-icon ">
+              <span className="mt-2 h3 add-icon " onClick={handleOnLogout}>
                 <i class="fa-solid fa-plus"></i>
               </span>
             </Link>

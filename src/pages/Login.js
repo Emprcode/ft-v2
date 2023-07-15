@@ -1,17 +1,23 @@
 import React, { useRef } from "react";
-import { Row, Col, Container, Form } from "react-bootstrap";
+import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import { FormComponents } from "../components/formComponents/FormComponents";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../components/helper/axiosHelper";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const emailRef = useRef()
+  const passRef = useRef()
+
+  const navigate = useNavigate()
   const inputs = [
     {
       email: "email",
       type: "email",
       label: "Email",
       placeholder: "Jack@gmail.com",
-      
       required: true,
+      forwardRef:emailRef
     },
     {
       name: "password",
@@ -19,11 +25,27 @@ const Login = () => {
       label: "Password",
       placeholder: "*****",
       required: true,
+      forwardRef:passRef
     },
   ];
 
-  const emailRef = useRef()
-  const passRef = useRef()
+  const handleOnSubmit = async e => {
+    e.preventDefault()
+    const obj={
+      email: emailRef.current.value,
+      password : passRef.current.value
+    }
+    const {status, message, result} = await loginUser(obj)
+    console.log(result)
+   toast[status](message)
+   if (status === "success" && result?._id) {
+    sessionStorage.setItem("user", JSON.stringify(result))
+    localStorage.setItem("user", JSON.stringify(result))
+    navigate("/dashboard")
+   }
+  }
+
+  
 
   return (
     <div className="bg-color">
@@ -41,14 +63,14 @@ const Login = () => {
           <Col className="mx-4 p-5">
             {/* <h4 className="mx-4 p-3 fw-bold">Login</h4> */}
             <div className="p-5">
-              <Form>
+              <Form onSubmit={handleOnSubmit}>
                 {inputs.map((item, i) => (
                   <FormComponents key={i} {...item} />
                 ))}
 
-                <div className="button mt-3" type="submit">
-                  Submit
-                </div>
+<Button className="button mt-3 " type="submit">
+                Submit
+              </Button>
                 <hr />
                 <div className="text-end">
                   {/* <h5> New User?</h5> */}
