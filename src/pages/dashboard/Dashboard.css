@@ -36,6 +36,7 @@ background-image: url("https://www.transparenttextures.com/patterns/diagmonds-li
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 50%;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -31,12 +31,13 @@ const AddTransaction = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Category</Form.Label>
-              <Form.Select defaultValue="Choose..." required>
-                <option>Choose....</option>
+              <Form.Select defaultValue="Select Category..." required>
+                <option disabled>Select Category</option>
                 <option>Income</option>
                 <option>Expense</option>
               </Form.Select>
             </Form.Group>
+
             <Row className="d-grid m-5">
               <Button variant="primary" type="submit">
                 Submit

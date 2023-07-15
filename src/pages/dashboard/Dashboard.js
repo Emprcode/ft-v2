@@ -25,7 +25,7 @@ const Dashboard = () => {
             <Link
               to="/add-transaction"
               className="d-flex justify-content-end nav-link">
-              <span className="mt-2 h3 add-icon">
+              <span className="mt-2 h3 add-icon ">
                 <i class="fa-solid fa-plus"></i>
               </span>
             </Link>
