@@ -4,13 +4,10 @@
 
 .bg-color{
   background: #e9ecef;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
-.login{
-  height: 100vh;
-  /* width: 100%; */
-}
+
 .button{
   width: 7rem;
   height: 2.5rem;

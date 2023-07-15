@@ -23,7 +23,7 @@ const Login = () => {
   ];
   return (
     <div className="bg-color">
-      <Container className="login d-flex justify-content-center align-items-center">
+      <Container className="p-5 d-flex justify-content-center align-items-center">
         <Row className="mt-3 shadow-lg  ">
           {/* <h4 className="text-center"></h4> */}
           {/* <hr /> */}
