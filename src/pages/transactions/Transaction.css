@@ -1,0 +1,11 @@
+.income{
+    background: rgb(22, 179, 105);
+    width: 10rem;
+    font-weight: bold;
+}
+
+.expense{
+    background: rgba(182, 46, 41, 0.916);
+    width: 10rem;
+    font-weight: bold;
+}

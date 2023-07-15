@@ -81,13 +81,7 @@ const Dashboard = () => {
               </Link>
             </Col>
           </Row>
-          <Row className="gap-3 ">
-            <TransactionCard />
-            <TransactionCard />
-            <TransactionCard />
-            <TransactionCard />
-            <TransactionCard />
-            <TransactionCard />
+          <Row className="gap-3 p-3 ">
             <TransactionCard />
             <TransactionCard />
             <TransactionCard />

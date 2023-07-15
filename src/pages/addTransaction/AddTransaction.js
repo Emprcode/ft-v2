@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Form, Row } from "react-bootstrap";
+import { Button, Container, Form, Row } from "react-bootstrap";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const AddTransaction = () => {
           </div>
           <h2 className="text-center fw-bold"> Add Transaction</h2>
         </Row>
-        <div className="mt-4 d-flex justify-content-center">
+        <div className="p-4 d-flex justify-content-center align-items-center">
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Amount</Form.Label>
@@ -37,10 +37,11 @@ const AddTransaction = () => {
                 <option>Expense</option>
               </Form.Select>
             </Form.Group>
-
-            <div className="button m-5" type="submit">
-              Add
-            </div>
+            <Row className="d-grid m-5">
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Row>
           </Form>
         </div>
       </Container>

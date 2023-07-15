@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import AddTransaction from './pages/addTransaction/AddTransaction';
+import Transactions from './pages/transactions/Transactions';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path ="/register" element={<Register/>}/>
         <Route path ="/dashboard" element={<Dashboard/>}/>
         <Route path ="/add-transaction" element={<AddTransaction/>}/>
+        <Route path ="/transactions" element={<Transactions/>}/>
       </Routes>
       </BrowserRouter>
      
