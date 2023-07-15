@@ -4,11 +4,12 @@ import { MainLayout } from "../../components/layout/MainLayout";
 import { Col, Container, Row } from "react-bootstrap";
 import avatar from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
+import { TransactionCard } from "../../components/card/TransactionCard";
 
 const Dashboard = () => {
   return (
     <MainLayout>
-      <Container>
+      <Container className="p-4">
         {/* intro */}
         <Row>
           <Col>
@@ -32,7 +33,7 @@ const Dashboard = () => {
         </Row>
         {/* status display */}
         <div className="d-flex justify-content-center p-5">
-          <Row className="p-3 rounded contact ">
+          <Row className="p-3 rounded contact shadow-lg">
             <div>
               <div className="text-center">
                 <p className="p-2">Total Balance</p>
@@ -67,6 +68,32 @@ const Dashboard = () => {
           </Row>
         </div>
         {/* Transaction */}
+        <div>
+          <Row className="p-4">
+            <Col>
+              <h2 className="fw-bold">Transactions</h2>
+            </Col>
+            <Col>
+              <Link
+                to="/transactions"
+                className="d-flex justify-content-end nav-link">
+                View All
+              </Link>
+            </Col>
+          </Row>
+          <Row className="gap-3 ">
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+            <TransactionCard />
+          </Row>
+        </div>
       </Container>
     </MainLayout>
   );

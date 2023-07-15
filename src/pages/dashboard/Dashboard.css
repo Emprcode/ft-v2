@@ -7,6 +7,8 @@ background-image: url("https://www.transparenttextures.com/patterns/diagmonds-li
 
 .contact {
         background:linear-gradient(to right, #ffbf96, #fe7096),url(../../assets/image.png);
+        /* background-color:linear-gradient(to right, #ffbf96, #fe7096); */
+        /* background-image:url(../../assets/image.png); */
         
  }
  
