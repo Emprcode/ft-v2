@@ -1,10 +1,13 @@
-import React from "react";
-import { MainLayout } from "../components/layout/MainLayout";
+import React, { useState } from "react";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import { FormComponents } from "../components/formComponents/FormComponents";
 import { Link } from "react-router-dom";
+import { postUser } from "../components/helper/axiosHelper";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const [formData, setFormData] = useState({});
+
   const inputs = [
     {
       name: "username",
@@ -35,6 +38,28 @@ const Register = () => {
       required: true,
     },
   ];
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  console.log(formData);
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const { confirmPassword, ...rest } = formData;
+    if (confirmPassword !== rest.password) {
+      toast.error("Password do not match!");
+      return;
+    }
+
+    const { status, message } = await postUser(rest);
+    toast[status](message);
+  };
   return (
     <div className="bg-color">
       <Container>
@@ -55,14 +80,14 @@ const Register = () => {
             </div>
           </Col>
           <Col className="p-5">
-            <Form>
+            <Form onSubmit={handleOnSubmit}>
               {inputs.map((item, i) => (
-                <FormComponents key={i} {...item} />
+                <FormComponents key={i} {...item} onChange={handleOnChange} />
               ))}
 
-              <div className="button mt-3 " type="submit">
+              <Button className="button mt-3 " type="submit">
                 Register
-              </div>
+              </Button>
             </Form>
           </Col>
         </Row>

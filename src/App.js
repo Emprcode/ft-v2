@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import AddTransaction from './pages/addTransaction/AddTransaction';
 import Transactions from './pages/transactions/Transactions';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path ="/transactions" element={<Transactions/>}/>
       </Routes>
       </BrowserRouter>
+      <ToastContainer/>
      
     </div>
   );

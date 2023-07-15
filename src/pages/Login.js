@@ -1,6 +1,5 @@
-import React from "react";
-import { MainLayout } from "../components/layout/MainLayout";
-import { Row, Col, Container, Form, Button } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Row, Col, Container, Form } from "react-bootstrap";
 import { FormComponents } from "../components/formComponents/FormComponents";
 import { Link } from "react-router-dom";
 
@@ -11,6 +10,7 @@ const Login = () => {
       type: "email",
       label: "Email",
       placeholder: "Jack@gmail.com",
+      
       required: true,
     },
     {
@@ -21,6 +21,10 @@ const Login = () => {
       required: true,
     },
   ];
+
+  const emailRef = useRef()
+  const passRef = useRef()
+
   return (
     <div className="bg-color">
       <Container className="p-5 d-flex justify-content-center align-items-center">
@@ -34,7 +38,7 @@ const Login = () => {
               <p> Please Login Here </p>
             </div>
           </Col>
-          <Col className="mx-4 p-5 ">
+          <Col className="mx-4 p-5">
             {/* <h4 className="mx-4 p-3 fw-bold">Login</h4> */}
             <div className="p-5">
               <Form>
