@@ -49,3 +49,12 @@
     /* text-align: center; */
     /* margin-left: 4rem */
 }
+
+.cardcss{
+cursor: pointer;
+transition: box-shadow 0.3s ease-in-out;
+}
+
+.cardcss:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.637) !important;
+}

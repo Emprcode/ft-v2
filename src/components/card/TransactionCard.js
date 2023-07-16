@@ -8,7 +8,7 @@ export const TransactionCard = ({ tranactions }) => {
     <>
       {tranactions?.length > 0 &&
         tranactions?.map((item, i) => (
-          <Card className="shadow-lg border-0" key={item._id}>
+          <Card className="shadow-lg border-0 cardcss" key={item._id}>
             <Card.Body>
               <div className="d-flex justify-content-between flex-wrap">
                 <div className="d-flex justify-content-center align-items-center flex-wrap mx-3">

@@ -10,7 +10,7 @@ export const postUser = async (userObj) => {
   try {
     console.log(userObj);
     const { data } = await axios.post(userApi, userObj);
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return {
@@ -25,7 +25,7 @@ export const loginUser = async (userObj) => {
   try {
     console.log(userObj);
     const { data } = await axios.post(loginUserApi, userObj);
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return {
@@ -60,7 +60,7 @@ export const postTransactions = async (transObj) => {
         Authorization: userId,
       },
     });
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return {
@@ -86,7 +86,32 @@ export const getTransactions = async () => {
         Authorization: userId,
       },
     });
-    console.log(data);
+    // console.log(data);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+export const deleteTransactions = async (transObj) => {
+  try {
+    const userId = getUserId();
+    // console.log(userId);
+    if (!userId) {
+      return {
+        status: "error",
+        message: "You need to log in first!",
+      };
+    }
+
+    const { data } = await axios.delete(transactionApi, transObj, {
+      headers: {
+        Authorization: userId,
+      },
+    });
+    // console.log(data);
     return data;
   } catch (error) {
     return {
