@@ -1,25 +1,34 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Col, Container, Row } from "react-bootstrap";
 import avatar from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
+// import { getTransactions } from "../../components/helper/axiosHelper";
 
-const Dashboard = () => {
-  const [user, setuser] = useState({});
+const Dashboard = ({ user, tranactions }) => {
+  // const [user, setuser] = useState({});
 
-  useEffect(() => {
-    const userStr = sessionStorage.getItem("user");
-    if (userStr) {
-      const userObj = JSON.parse(userStr);
-      setuser(userObj);
-    }
-  }, []);
+  // const [tranactions, setTransactions] = useState([]);
 
-  const handleOnLogout = () => {
-    sessionStorage.removeItem("user");
-  };
+  // useEffect(() => {
+  //   const userStr = sessionStorage.getItem("user");
+  //   if (userStr) {
+  //     const userObj = JSON.parse(userStr);
+  //     setuser(userObj);
+  //   }
+
+  //   fetchTransactions();
+  // }, []);
+
+  // const fetchTransactions = async () => {
+  //   const { status, message, result } = await getTransactions();
+  //   console.log(status, message);
+
+  //   status === "success" && setTransactions(result);
+  // };
+
   return (
     <MainLayout>
       <Container className="p-4">
@@ -27,10 +36,10 @@ const Dashboard = () => {
         <Row>
           <Col>
             <div className="d-flex">
-              <img src={avatar} alt="avatar" width="100px" height="90px" />
+              <img src={avatar} alt="avatar" width="90px" height="80px" />
               <div className="mx-3">
-                <h4 className="">Welcome!</h4>
-                <h2 className="fw-bold"> {user?.username}</h2>
+                <h4 className="text-center">Welcome!</h4>
+                <h2 className="fw-bold"> {user?.name}</h2>
               </div>
             </div>
           </Col>
@@ -38,7 +47,7 @@ const Dashboard = () => {
             <Link
               to="/add-transaction"
               className="d-flex justify-content-end nav-link">
-              <span className="mt-2 h3 add-icon " onClick={handleOnLogout}>
+              <span className="mt-2 h3 add-icon ">
                 <i class="fa-solid fa-plus"></i>
               </span>
             </Link>
@@ -62,7 +71,7 @@ const Dashboard = () => {
                   </span>
                   <div className="mx-2">
                     <h6 className="">Income</h6>
-                    <h5 className="">100,000.00</h5>
+                    <h5 className="">$100,000.00</h5>
                   </div>
                 </div>
               </Col>
@@ -73,7 +82,7 @@ const Dashboard = () => {
                   </span>
                   <div className="mx-2">
                     <h6 className="">Expenses</h6>
-                    <h5 className="">20,000.00</h5>
+                    <h5 className="">$20,000.00</h5>
                   </div>
                 </div>
               </Col>
@@ -89,16 +98,14 @@ const Dashboard = () => {
             <Col>
               <Link
                 to="/transactions"
-                className="d-flex justify-content-end nav-link">
+                className="d-flex justify-content-end fw-bold nav-link"
+                tranactions={tranactions}>
                 View All
               </Link>
             </Col>
           </Row>
           <Row className="gap-3 p-3 ">
-            <TransactionCard />
-            <TransactionCard />
-            <TransactionCard />
-            <TransactionCard />
+            <TransactionCard tranactions={tranactions} />
           </Row>
         </div>
       </Container>

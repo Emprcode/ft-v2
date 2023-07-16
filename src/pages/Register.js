@@ -10,7 +10,7 @@ const Register = () => {
 
   const inputs = [
     {
-      name: "username",
+      name: "name",
       type: "text",
       label: "User Name",
       placeholder: "Jack",

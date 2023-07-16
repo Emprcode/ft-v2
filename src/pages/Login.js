@@ -48,9 +48,9 @@ const Login = () => {
   
 
   return (
-    <div className="bg-color">
-      <Container className="p-5 d-flex justify-content-center align-items-center">
-        <Row className="mt-3 shadow-lg  ">
+    <div className="bg-color d-flex justify-content-center align-items-center">
+      <Container className="p-5 ">
+        <Row className="mt-3 shadow-lg flex-wrap">
           {/* <h4 className="text-center"></h4> */}
           {/* <hr /> */}
           <Col className=" p-5 text-center fw-bold">

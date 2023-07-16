@@ -1,22 +1,28 @@
 import Card from "react-bootstrap/Card";
 import avatar from "../../assets/avatar.png";
 
-export const TransactionCard = () => {
+export const TransactionCard = ({ tranactions }) => {
+  console.log(tranactions);
   return (
-    <Card className="shadow-lg border-0">
-      <Card.Body>
-        <div className="d-flex justify-content-between flex-wrap">
-          <div className="d-flex justify-content-center align-items-center flex-wrap mx-3">
-            <img src={avatar} alt="avatar" width="80px" height="70px" />
+    <>
+      {tranactions?.length > 0 &&
+        tranactions?.map((item, i) => (
+          <Card className="shadow-lg border-0" key={item._id}>
+            <Card.Body>
+              <div className="d-flex justify-content-between flex-wrap">
+                <div className="d-flex justify-content-center align-items-center flex-wrap mx-3">
+                  <img src={avatar} alt="avatar" width="80px" height="70px" />
 
-            <h2 className="">Food</h2>
-          </div>
-          <div className="text-center">
-            <h6 className="fw-bold"> +$1000.00</h6>
-            <p>Today</p>
-          </div>
-        </div>
-      </Card.Body>
-    </Card>
+                  <h2 className="">{item.name}</h2>
+                </div>
+                <div className="text-center">
+                  <h6 className="fw-bold"> {item.amount}</h6>
+                  <p>{item.createdAt}</p>
+                </div>
+              </div>
+            </Card.Body>
+          </Card>
+        ))}
+    </>
   );
 };

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Transaction.css";
 import { TransactionCard } from "../../components/card/TransactionCard";
 
-const Transactions = () => {
+const Transactions = ({tranactions}) => {
   return (
     <MainLayout>
       <Container>
@@ -31,10 +31,8 @@ const Transactions = () => {
         {/* Chart */}
         {/* Tranaction */}
         <Row className="gap-3 p-3 ">
-          <TransactionCard />
-          <TransactionCard />
-          <TransactionCard />
-          <TransactionCard />
+          <TransactionCard tranactions={tranactions}/>
+         
         </Row>
       </Container>
     </MainLayout>
