@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Link } from "react-router-dom";
-import { postTransactions } from "../../components/helper/axiosHelper";
+import { getTransactions, postTransactions } from "../../components/helper/axiosHelper";
 import { toast } from "react-toastify";
 
 const AddTransaction = () => {
@@ -20,6 +20,7 @@ const AddTransaction = () => {
     e.preventDefault();
     const { status, message } = await postTransactions(formData);
     toast[status](message);
+    status === "success" && getTransactions()
   };
   return (
     <MainLayout>
