@@ -6,6 +6,8 @@ import "./Transaction.css";
 import { TransactionCard } from "../../components/card/TransactionCard";
 
 const Transactions = ({tranactions}) => {
+  const newTransactions = [...tranactions].reverse()
+  // console.log(newTransactions)
   return (
     <MainLayout>
       <Container>
@@ -31,7 +33,7 @@ const Transactions = ({tranactions}) => {
         {/* Chart */}
         {/* Tranaction */}
         <Row className="gap-3 p-3 ">
-          <TransactionCard tranactions={tranactions}/>
+          <TransactionCard tranactions={newTransactions}/>
          
         </Row>
       </Container>

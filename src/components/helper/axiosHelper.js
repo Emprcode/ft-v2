@@ -43,6 +43,32 @@ const getUserId = () => {
   return userObj?._id || null;
 };
 
+//post Transaction
+export const postTransactions = async (transObj) => {
+  try {
+    const userId = getUserId();
+    // console.log(userId);
+    if (!userId) {
+      return {
+        status: "error",
+        message: "You need to log in first!",
+      };
+    }
+
+    const { data } = await axios.post(transactionApi, transObj, {
+      headers: {
+        Authorization: userId,
+      },
+    });
+    console.log(data);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
 //get Transaction
 export const getTransactions = async () => {
   try {

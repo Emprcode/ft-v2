@@ -16,8 +16,8 @@ function App() {
 
   useEffect(() => {
     
-    userStorge()
-    fetchTransactions();
+    userStorge();
+     fetchTransactions();
   }, []);
 
   const userStorge = () => {

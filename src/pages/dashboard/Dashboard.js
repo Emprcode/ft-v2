@@ -1,34 +1,34 @@
-// import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Col, Container, Row } from "react-bootstrap";
 import avatar from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
-// import { getTransactions } from "../../components/helper/axiosHelper";
 
 const Dashboard = ({ user, tranactions }) => {
-  // const [user, setuser] = useState({});
+  const total = tranactions.reduce(
+    (acc, item) =>
+      item.type === "Income" ? acc + +item.amount : acc - +item.amount,
+    0
+  );
 
-  // const [tranactions, setTransactions] = useState([]);
+  const totalIncome = tranactions.reduce((acc, item) => {
+    if (item.type === "Income") {
+      return acc + +item.amount;
+    }
+    return acc;
+  }, 0);
+  const totalExpense = tranactions.reduce((acc, item) => {
+    if (item.type === "Expense") {
+      return acc + +item.amount;
+    }
+    return acc;
+  }, 0);
 
-  // useEffect(() => {
-  //   const userStr = sessionStorage.getItem("user");
-  //   if (userStr) {
-  //     const userObj = JSON.parse(userStr);
-  //     setuser(userObj);
-  //   }
+  const newTransactions = [...tranactions].reverse();
 
-  //   fetchTransactions();
-  // }, []);
-
-  // const fetchTransactions = async () => {
-  //   const { status, message, result } = await getTransactions();
-  //   console.log(status, message);
-
-  //   status === "success" && setTransactions(result);
-  // };
-
+  const latestTransactions = newTransactions.slice(0, 4);
+  // console.log(latestTransactions);
   return (
     <MainLayout>
       <Container className="p-4">
@@ -60,7 +60,7 @@ const Dashboard = ({ user, tranactions }) => {
               <div className="text-center">
                 <p className="p-2">Total Balance</p>
 
-                <h2 className="fw-bold"> $ 80,000.00</h2>
+                <h2 className="fw-bold"> $ {total}</h2>
               </div>
             </div>
             <Row className="mt-5">
@@ -71,7 +71,7 @@ const Dashboard = ({ user, tranactions }) => {
                   </span>
                   <div className="mx-2">
                     <h6 className="">Income</h6>
-                    <h5 className="">$100,000.00</h5>
+                    <h5 className="">${totalIncome}</h5>
                   </div>
                 </div>
               </Col>
@@ -82,7 +82,7 @@ const Dashboard = ({ user, tranactions }) => {
                   </span>
                   <div className="mx-2">
                     <h6 className="">Expenses</h6>
-                    <h5 className="">$20,000.00</h5>
+                    <h5 className="">${totalExpense}</h5>
                   </div>
                 </div>
               </Col>
@@ -105,7 +105,7 @@ const Dashboard = ({ user, tranactions }) => {
             </Col>
           </Row>
           <Row className="gap-3 p-3 ">
-            <TransactionCard tranactions={tranactions} />
+            <TransactionCard tranactions={latestTransactions} />
           </Row>
         </div>
       </Container>

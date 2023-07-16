@@ -2,7 +2,8 @@ import Card from "react-bootstrap/Card";
 import avatar from "../../assets/avatar.png";
 
 export const TransactionCard = ({ tranactions }) => {
-  console.log(tranactions);
+  // console.log(tranactions);
+
   return (
     <>
       {tranactions?.length > 0 &&
@@ -16,7 +17,10 @@ export const TransactionCard = ({ tranactions }) => {
                   <h2 className="">{item.name}</h2>
                 </div>
                 <div className="text-center">
-                  <h6 className="fw-bold"> {item.amount}</h6>
+                  {
+                    item.type === "Income" ? <h6 className="fw-bold text-success"> +${item.amount}</h6> : <h6 className="fw-bold text-danger"> -${item.amount}</h6>
+                  }
+                  {/* .split('T')[0] */}
                   <p>{item.createdAt}</p>
                 </div>
               </div>

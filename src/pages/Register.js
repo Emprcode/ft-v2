@@ -47,7 +47,7 @@ const Register = () => {
     });
   };
 
-  console.log(formData);
+  // console.log(formData);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
