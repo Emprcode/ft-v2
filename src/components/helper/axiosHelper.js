@@ -95,7 +95,7 @@ export const getTransactions = async () => {
     };
   }
 };
-export const deleteTransactions = async (_id) => {
+export const deleteTransactions = async (_ids) => {
   try {
     const userId = getUserId();
     // console.log(userId);
@@ -105,15 +105,12 @@ export const deleteTransactions = async (_id) => {
         message: "You need to log in first!",
       };
     }
-    const { data } = await axios.delete(
-      transactionApi,
-      { _idArg: _id },
-      {
-        headers: {
-          Authorization: userId,
-        },
-      }
-    );
+    console.log(_ids, userId);
+    const { data } = await axios.delete(transactionApi, _ids, {
+      headers: {
+        Authorization: userId,
+      },
+    });
     console.log(data);
     return data;
   } catch (error) {

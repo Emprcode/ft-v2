@@ -19,11 +19,13 @@ const Transactions = ({tranactions}) => {
     const { value, checked } = e.target;
     if (checked) {
       setItemToDel([...itemToDel, value]);
-      setCheckedAll(select.length === itemToDel.length + 1);
+      // setCheckedAll(select.length === itemToDel.length + 1);
     } else {
       setItemToDel(itemToDel.filter((item) => item !== value));
-      setCheckedAll(false);
+      // setCheckedAll(false);
+      
     }
+    // console.log(value, checked)
   };
   const handleOnSelectAll = (e) => {
     const { checked } = e.target;
@@ -37,17 +39,17 @@ const Transactions = ({tranactions}) => {
     }
   };
 
-  // const handleOnDelete = async (_id) => {
-  //   if (!window.confirm("Are you sure you want to delete?")) {
-  //     return;
-  //   }
+  const handleOnDelete = async (_id) => {
+    if (!window.confirm("Are you sure you want to delete?")) {
+      return;
+    }
 
-  //   const {status, message} = await deleteTransactions(itemToDel);
-  //   console.log(status, message);
-  //   // setResponse(result);
-  //   status === "success" && getTransactions();
-  //   setItemToDel([]);
-  // };
+    const {status, message} = await deleteTransactions(itemToDel);
+    console.log(status, message);
+    // setResponse(result);
+    status === "success" && getTransactions();
+    setItemToDel([]);
+  };
   return (
     <MainLayout>
       <Container>
@@ -79,7 +81,7 @@ const Transactions = ({tranactions}) => {
         <Row>
         {itemToDel.length > 0 && (
           <div className="d-grid g-2">
-            <Button variant="danger" className="mb-3" >
+            <Button variant="danger" className="mb-3" onClick={handleOnDelete}>
                {itemToDel.length} transactions selected
             </Button>
           </div>
