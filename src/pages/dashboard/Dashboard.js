@@ -2,10 +2,16 @@ import "./Dashboard.css";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Col, Container, Row } from "react-bootstrap";
 import avatar from "../../assets/avatar.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
+import { useEffect } from "react";
 
 const Dashboard = ({ user, tranactions }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    !user && navigate("/");
+  }, []); 
   const total = tranactions.reduce(
     (acc, item) =>
       item.type === "Income" ? acc + +item.amount : acc - +item.amount,

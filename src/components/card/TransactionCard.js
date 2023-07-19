@@ -1,10 +1,14 @@
 import Card from "react-bootstrap/Card";
 import avatar from "../../assets/avatar.png";
-import { InputGroup, Form } from "react-bootstrap";
+import { InputGroup, Form, Row, Button } from "react-bootstrap";
+import { useState } from "react";
+import { deleteTransactions, getTransactions } from "../helper/axiosHelper";
 
-export const TransactionCard = ({ tranactions, handleOnSelect, itemToDel }) => {
+export const TransactionCard = ({ tranactions, itemToDelete, handleOnSelect}) => {
   // console.log(tranactions);
 
+
+  console.log(itemToDelete)
   return (
     <>
       {tranactions?.length > 0 &&
@@ -20,7 +24,7 @@ export const TransactionCard = ({ tranactions, handleOnSelect, itemToDel }) => {
                     className="form-check-input"
                     value={item._id}
                     onChange={handleOnSelect}
-                    // checked={itemToDel.includes(item._id)}
+                    // checked={itemToDelete.includes(item._id)}
                   />
                   <img src={avatar} alt="avatar" width="80px" height="70px" />
 
@@ -38,7 +42,9 @@ export const TransactionCard = ({ tranactions, handleOnSelect, itemToDel }) => {
               </div>
             </Card.Body>
           </Card>
+          
         ))}
+       
     </>
   );
 };
