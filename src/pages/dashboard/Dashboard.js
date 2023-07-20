@@ -11,7 +11,7 @@ const Dashboard = ({ user, tranactions }) => {
   useEffect(() => {
     const user = JSON.parse(sessionStorage.getItem("user"));
     !user && navigate("/");
-  }, []); 
+  }, []);
   const total = tranactions.reduce(
     (acc, item) =>
       item.type === "Income" ? acc + +item.amount : acc - +item.amount,
@@ -34,7 +34,8 @@ const Dashboard = ({ user, tranactions }) => {
   const newTransactions = [...tranactions].reverse();
 
   const latestTransactions = newTransactions.slice(0, 4);
-  // console.log(latestTransactions);
+  console.log(tranactions);
+  console.log(newTransactions);
   return (
     <MainLayout>
       <Container className="p-4">
@@ -104,14 +105,13 @@ const Dashboard = ({ user, tranactions }) => {
             <Col>
               <Link
                 to="/transactions"
-                className="d-flex justify-content-end fw-bold nav-link"
-                tranactions={tranactions}>
+                className="d-flex justify-content-end fw-bold nav-link">
                 View All
               </Link>
             </Col>
           </Row>
           <Row className="gap-3 p-3 ">
-            <TransactionCard tranactions={latestTransactions} />
+            <TransactionCard arrayList={latestTransactions} />
           </Row>
         </div>
       </Container>

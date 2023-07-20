@@ -1,18 +1,15 @@
 import Card from "react-bootstrap/Card";
 import avatar from "../../assets/avatar.png";
-import { InputGroup, Form, Row, Button } from "react-bootstrap";
-import { useState } from "react";
-import { deleteTransactions, getTransactions } from "../helper/axiosHelper";
 
-export const TransactionCard = ({ tranactions, itemToDelete, handleOnSelect}) => {
-  // console.log(tranactions);
+export const TransactionCard = ({ arrayList, itemToDelete, func}) => {
+  // console.log(arrayList);
 
 
-  console.log(itemToDelete)
+  // console.log(itemToDelete)
   return (
     <>
-      {tranactions?.length > 0 &&
-        tranactions?.map((item, i) => (
+      {arrayList?.length > 0 &&
+        arrayList?.map((item, i) => (
           <Card className="shadow-lg border-0 cardcss" key={item._id}>
             <Card.Body>
               <div className="d-flex justify-content-between flex-wrap">
@@ -23,8 +20,8 @@ export const TransactionCard = ({ tranactions, itemToDelete, handleOnSelect}) =>
                     type="checkbox"
                     className="form-check-input"
                     value={item._id}
-                    onChange={handleOnSelect}
-                    // checked={itemToDelete.includes(item._id)}
+                    onChange={func}
+              
                   />
                   <img src={avatar} alt="avatar" width="80px" height="70px" />
 

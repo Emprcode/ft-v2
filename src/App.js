@@ -10,16 +10,17 @@ import React, { useEffect, useState } from "react";
 import { getTransactions } from './components/helper/axiosHelper';
 
 function App() {
+
   const [user, setuser] = useState({});
 
   const [tranactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    
     userStorge();
      fetchTransactions();
   }, []);
 
+  
   const userStorge = () => {
     const userStr = sessionStorage.getItem("user");
     if (userStr) {
