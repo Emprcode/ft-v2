@@ -1,11 +1,8 @@
 import Card from "react-bootstrap/Card";
 import avatar from "../../assets/avatar.png";
 
-export const TransactionCard = ({ arrayList, itemToDelete, func}) => {
-  // console.log(arrayList);
+export const TransactionCard = ({ arrayList, itemToDelete, select, func}) => {
 
-
-  // console.log(itemToDelete)
   return (
     <>
       {arrayList?.length > 0 &&
@@ -14,14 +11,14 @@ export const TransactionCard = ({ arrayList, itemToDelete, func}) => {
             <Card.Body>
               <div className="d-flex justify-content-between flex-wrap">
                 <div className="d-flex justify-content-center align-items-center flex-wrap mx-3">
-                  {/* <InputGroup.Checkbox /> */}
-                  {/* <input type="checkbox" className="form-check-input" /> */}
+                 
                   <input
                     type="checkbox"
                     className="form-check-input"
                     value={item._id}
                     onChange={func}
-              
+              //  checked={itemToDelete?.includes(item._id)}
+              // checked={select}
                   />
                   <img src={avatar} alt="avatar" width="80px" height="70px" />
 

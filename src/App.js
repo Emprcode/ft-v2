@@ -10,24 +10,23 @@ import React, { useEffect, useState } from "react";
 import { getTransactions } from './components/helper/axiosHelper';
 
 function App() {
-
   const [user, setuser] = useState({});
 
   const [tranactions, setTransactions] = useState([]);
 
   useEffect(() => {
     userStorge();
-     fetchTransactions();
+    fetchTransactions();
+
   }, []);
 
-  
   const userStorge = () => {
     const userStr = sessionStorage.getItem("user");
     if (userStr) {
       const userObj = JSON.parse(userStr);
       setuser(userObj);
     }
-  }
+  };
   const fetchTransactions = async () => {
     const { status, message, result } = await getTransactions();
     console.log(status, message);
@@ -35,6 +34,7 @@ function App() {
     status === "success" && setTransactions(result);
   };
 
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -43,7 +43,8 @@ function App() {
         <Route path ="/register" element={<Register/>}/>
         <Route path ="/dashboard" element={<Dashboard user={user} tranactions={tranactions}/>}/>
         <Route path ="/add-transaction" element={<AddTransaction/>}/>
-        <Route path ="/transactions" element={<Transactions tranactions={tranactions}/>}/>
+        <Route path ="/transactions" element={<Transactions tranactions={tranactions} fetchTransactions={fetchTransactions} />}/>
+        <Route path="*" element={<h1 className='text-center p-5'>404 page not found...</h1>} />
       </Routes>
       </BrowserRouter>
       <ToastContainer/>

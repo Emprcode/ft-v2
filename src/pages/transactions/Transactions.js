@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, Form, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Link } from "react-router-dom";
 import "./Transaction.css";
 import { TransactionCard } from "../../components/card/TransactionCard";
-import {
-  deleteTransactions,
-  getTransactions,
-} from "../../components/helper/axiosHelper";
+import { deleteTransactions } from "../../components/helper/axiosHelper";
 
-const Transactions = ({ tranactions }) => {
+const Transactions = ({ tranactions, fetchTransactions }) => {
   const newTransactions = [...tranactions].reverse();
   const [itemToDelete, setItemToDelete] = useState([]);
-  const [displayTrans, setDisplayTrans] = useState(tranactions);
+  const [displayTrans, setDisplayTrans] = useState(newTransactions);
+  // const [select, setSelect] = useState(false);
 
   const handleOnSelect = (e) => {
     const { checked, value } = e.target;
 
     if (checked) {
       setItemToDelete([...itemToDelete, value]);
+      // setSelect(tranactions.length === itemToDelete.length + 1);
     } else {
-      setItemToDelete(itemToDelete.filter((item) => item?._id !== value));
-      // setIsAllSelected(false)
+      setItemToDelete(itemToDelete.filter((_id) => _id !== value));
+      // setSelect(false);
     }
   };
 
@@ -31,9 +30,10 @@ const Transactions = ({ tranactions }) => {
     }
     const { status, message } = await deleteTransactions(itemToDelete);
     console.log(status, message);
-    status === "success" && getTransactions();
+    status === "success" && fetchTransactions();
     setItemToDelete([]);
   };
+  // console.log(itemToDelete);
 
   const handleOnIncome = () => {
     setDisplayTrans(newTransactions.filter((item) => item.type === "Income"));
@@ -41,6 +41,11 @@ const Transactions = ({ tranactions }) => {
   const handleOnExpense = () => {
     setDisplayTrans(newTransactions.filter((item) => item.type === "Expense"));
   };
+
+  useEffect(() => {
+    setDisplayTrans(tranactions);
+  }, [tranactions]);
+
   return (
     <MainLayout>
       <Container>
@@ -71,7 +76,11 @@ const Transactions = ({ tranactions }) => {
         {/* Chart */}
         {/* Tranaction */}
         <Row className="gap-3 p-3 ">
-          <TransactionCard arrayList={displayTrans} func={handleOnSelect} />
+          <TransactionCard
+            arrayList={displayTrans}
+            func={handleOnSelect}
+            itemToDelete={itemToDelete}
+          />
         </Row>
         <Row>
           {itemToDelete.length > 0 && (

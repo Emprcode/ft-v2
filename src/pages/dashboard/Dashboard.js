@@ -6,12 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
 import { useEffect } from "react";
 
-const Dashboard = ({ user, tranactions }) => {
+const Dashboard = ({ tranactions, user }) => {
   const navigate = useNavigate();
+
   useEffect(() => {
-    const user = JSON.parse(sessionStorage.getItem("user"));
     !user && navigate("/");
-  }, []);
+  }, [user, navigate]);
   const total = tranactions.reduce(
     (acc, item) =>
       item.type === "Income" ? acc + +item.amount : acc - +item.amount,
@@ -36,6 +36,7 @@ const Dashboard = ({ user, tranactions }) => {
   const latestTransactions = newTransactions.slice(0, 4);
   console.log(tranactions);
   console.log(newTransactions);
+
   return (
     <MainLayout>
       <Container className="p-4">

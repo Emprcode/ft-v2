@@ -107,7 +107,7 @@ export const deleteTransactions = async (_ids) => {
     }
     console.log(_ids, userId);
     const { data } = await axios.delete(transactionApi, {
-      _ids,
+      data: _ids,
       headers: {
         Authorization: userId,
       },
