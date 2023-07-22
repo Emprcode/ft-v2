@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-import avatar from "../../assets/avatar.png";
 import { FcMoneyTransfer } from "react-icons/fc";
 import { FaMoneyCheckAlt } from "react-icons/fa";
 
