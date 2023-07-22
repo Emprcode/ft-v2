@@ -112,7 +112,7 @@ const Dashboard = ({ tranactions, user }) => {
             </Col>
           </Row>
           <Row className="gap-3 p-3 ">
-            <TransactionCard arrayList={latestTransactions} />
+            <TransactionCard arrayList={latestTransactions} isVisible={false}/>
           </Row>
         </div>
       </Container>

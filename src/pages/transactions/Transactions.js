@@ -80,6 +80,7 @@ const Transactions = ({ tranactions, fetchTransactions }) => {
             arrayList={displayTrans}
             func={handleOnSelect}
             itemToDelete={itemToDelete}
+            isVisible={true}
           />
         </Row>
         <Row>
