@@ -35,6 +35,26 @@ export const loginUser = async (userObj) => {
   }
 };
 
+//delete user
+
+
+
+export const deleteUser = async (obj) => {
+  try {
+   
+    const { data } = await axios.delete(userApi, {data: obj}
+     
+    );
+    console.log(data);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+
 //return user Id
 const getUserId = () => {
   const userStr = sessionStorage.getItem("user");
