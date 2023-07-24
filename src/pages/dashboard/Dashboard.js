@@ -99,7 +99,7 @@ const Dashboard = ({ tranactions, user }) => {
         </div>
         {/* Transaction */}
         {
-          tranactions &&  <div>
+          tranactions > 0 &&  <div>
           <Row className="p-4">
             <Col>
               <h2 className="fw-bold">Transactions</h2>
