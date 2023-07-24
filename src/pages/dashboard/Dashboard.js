@@ -98,7 +98,8 @@ const Dashboard = ({ tranactions, user }) => {
           </Row>
         </div>
         {/* Transaction */}
-        <div>
+        {
+          tranactions &&  <div>
           <Row className="p-4">
             <Col>
               <h2 className="fw-bold">Transactions</h2>
@@ -115,6 +116,8 @@ const Dashboard = ({ tranactions, user }) => {
             <TransactionCard arrayList={latestTransactions} isVisible={false}/>
           </Row>
         </div>
+        }
+       
       </Container>
     </MainLayout>
   );
