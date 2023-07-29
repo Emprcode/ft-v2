@@ -63,7 +63,7 @@ const Dashboard = ({ tranactions, user }) => {
           </Col>
         </Row>
 
-        {tranactions?.length ? (
+        {tranactions?.length > 0 ? (
           <>
             {/* status display */}
             <div className="d-flex justify-content-center p-5 ">
