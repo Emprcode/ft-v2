@@ -1,10 +1,11 @@
 import "./Dashboard.css";
 import { MainLayout } from "../../components/layout/MainLayout";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import avatar from "../../assets/avatar.png";
 import { Link, useNavigate } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
 import { useEffect } from "react";
+import { GiWallet } from "react-icons/gi";
 
 const Dashboard = ({ tranactions, user }) => {
   const navigate = useNavigate();
@@ -61,63 +62,95 @@ const Dashboard = ({ tranactions, user }) => {
             </Link>
           </Col>
         </Row>
-        {/* status display */}
-        <div className="d-flex justify-content-center p-5 ">
-          <Row className="p-3 rounded contact shadow-lg">
-            <div>
-              <div className="text-center">
-                <p className="p-2">Total Balance</p>
 
-                <h2 className="fw-bold"> $ {total}</h2>
-              </div>
+        {tranactions?.length ? (
+          <>
+            {/* status display */}
+            <div className="d-flex justify-content-center p-5 ">
+              <Row className="p-3 rounded contact shadow-lg">
+                <div>
+                  <div className="text-center">
+                    <p className="p-2">Total Balance</p>
+
+                    <h2 className="fw-bold"> $ {total}</h2>
+                  </div>
+                </div>
+                <Row className="mt-5">
+                  <Col>
+                    <div className="d-flex">
+                      <span className="mt-2 income-icon">
+                        <i class="fa-solid fa-arrow-up"></i>
+                      </span>
+                      <div className="mx-2">
+                        <h6 className="">Income</h6>
+                        <h5 className="">${totalIncome}</h5>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col>
+                    <div className="d-flex justify-content-end">
+                      <span className="mt-2 expense-icon">
+                        <i class="fa-solid fa-arrow-down"></i>
+                      </span>
+                      <div className="mx-2">
+                        <h6 className="">Expenses</h6>
+                        <h5 className="">${totalExpense}</h5>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </Row>
             </div>
-            <Row className="mt-5">
-              <Col>
-                <div className="d-flex">
-                  <span className="mt-2 income-icon">
-                    <i class="fa-solid fa-arrow-up"></i>
-                  </span>
-                  <div className="mx-2">
-                    <h6 className="">Income</h6>
-                    <h5 className="">${totalIncome}</h5>
-                  </div>
+            {/* Transaction */}
+
+            <div>
+              <Row className="p-4">
+                <Col>
+                  <h2 className="fw-bold">Transactions</h2>
+                </Col>
+                <Col>
+                  <Link
+                    to="/transactions"
+                    className="d-flex justify-content-end fw-bold nav-link">
+                    View All
+                  </Link>
+                </Col>
+              </Row>
+              <Row className="gap-3 p-3 ">
+                <TransactionCard
+                  arrayList={latestTransactions}
+                  isVisible={false}
+                />
+              </Row>
+            </div>
+          </>
+        ) : (
+          <div className="p-4 mt-3 shadow-lg">
+            <div className="d-flex justify-content-center p-5 ">
+              <Row className="p-3">
+                <div className="text-success">
+                  <GiWallet size={150} />
                 </div>
-              </Col>
-              <Col>
-                <div className="d-flex justify-content-end">
-                  <span className="mt-2 expense-icon">
-                    <i class="fa-solid fa-arrow-down"></i>
-                  </span>
-                  <div className="mx-2">
-                    <h6 className="">Expenses</h6>
-                    <h5 className="">${totalExpense}</h5>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Row>
-        </div>
-        {/* Transaction */}
-        {
-          tranactions?.length > 0 &&  <div>
-          <Row className="p-4">
-            <Col>
-              <h2 className="fw-bold">Transactions</h2>
-            </Col>
-            <Col>
-              <Link
-                to="/transactions"
-                className="d-flex justify-content-end fw-bold nav-link">
-                View All
+              </Row>
+            </div>
+
+            <div className="text-center">
+              <h2 className="fw-bold">Save your money with Finance Tracker</h2>
+              <p>
+                Your financial wizardry—track, save, prosper. Unleash money
+                magic, bloom wealth. Empower, conquer, and discover financial
+                freedom
+              </p>
+              <Link to="/add-transaction">
+                <Button
+                  variant="success"
+                  className="btnColor text-dark fw-bold">
+                  Lets Start
+                </Button>
               </Link>
-            </Col>
-          </Row>
-          <Row className="gap-3 p-3 ">
-            <TransactionCard arrayList={latestTransactions} isVisible={false}/>
-          </Row>
-        </div>
-        }
-       
+            </div>
+          </div>
+        )}
       </Container>
     </MainLayout>
   );

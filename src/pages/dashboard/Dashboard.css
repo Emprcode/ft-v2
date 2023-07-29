@@ -1,8 +1,4 @@
-/* .card1{
-    background: linear-gradient(to right, #ffbf96, #fe7096);
-background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
-    
- } */
+
 
 
 .contact {
@@ -11,11 +7,12 @@ background-image: url("https://www.transparenttextures.com/patterns/diagmonds-li
         background-image:url(../../assets/image.png); */
      
             background-image: linear-gradient(to right, #ffbf96, #fe7096), url('../../assets/image.png');
-            background-size: cover;
+            /* background-size: cover; */
             /* Other background properties if needed */
        
           
  }
+
  
  .logo{
     font-family: 'Pacifico', cursive;
@@ -52,5 +49,10 @@ background-image: url("https://www.transparenttextures.com/patterns/diagmonds-li
     justify-content: center;
     align-items: center;
   }
+  .btnColor{
+    background: #64dab2a2 !important;
+    
+  }
+  
 
   
