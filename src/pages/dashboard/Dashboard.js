@@ -35,8 +35,9 @@ const Dashboard = ({ tranactions, user }) => {
   const newTransactions = [...tranactions].reverse();
 
   const latestTransactions = newTransactions.slice(0, 4);
-  console.log(tranactions);
-  console.log(newTransactions);
+  // console.log(tranactions);
+  // console.log(newTransactions);
+  // console.log(user);
 
   return (
     <MainLayout>
