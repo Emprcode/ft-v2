@@ -11,7 +11,7 @@ const Dashboard = ({ tranactions, user }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    !user?._id && navigate("/");
+    !user && navigate("/");
   }, [user, navigate]);
   const total = tranactions.reduce(
     (acc, item) =>
