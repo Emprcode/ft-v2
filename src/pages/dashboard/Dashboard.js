@@ -53,14 +53,19 @@ const Dashboard = ({ tranactions, user }) => {
               </div>
             </div>
           </Col>
+
           <Col>
-            <Link
-              to="/add-transaction"
-              className="d-flex justify-content-end nav-link">
-              <span className="mt-2 h3 add-icon ">
-                <i class="fa-solid fa-plus"></i>
-              </span>
-            </Link>
+            {tranactions?.length > 0 ? (
+              <Link
+                to="/add-transaction"
+                className="d-flex justify-content-end nav-link">
+                <span className="mt-2 h3 add-icon ">
+                  <i class="fa-solid fa-plus"></i>
+                </span>
+              </Link>
+            ) : (
+              <></>
+            )}
           </Col>
         </Row>
 
@@ -126,9 +131,9 @@ const Dashboard = ({ tranactions, user }) => {
             </div>
           </>
         ) : (
-          <div className="p-4 mt-3 shadow-lg">
+          <div className="p-4 mb-5 mt-3 shado">
             <div className="d-flex justify-content-center p-5 ">
-              <Row className="p-3">
+              <Row className="">
                 <div className="text-success">
                   <GiWallet size={150} />
                 </div>
@@ -136,7 +141,9 @@ const Dashboard = ({ tranactions, user }) => {
             </div>
 
             <div className="text-center">
-              <h2 className="fw-bold">Save your money with Finance Tracker</h2>
+              <h2 className="fw-bold p-4">
+                Save your money with Finance Tracker
+              </h2>
               <p>
                 Your financial wizardry—track, save, prosper. Unleash money
                 magic, bloom wealth. Empower, conquer, and discover financial
