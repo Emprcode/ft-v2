@@ -1,7 +1,7 @@
 import "./Dashboard.css";
 import { MainLayout } from "../../components/layout/MainLayout";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import avatar from "../../assets/avatar.png";
+import person from "../../assets/person.png";
 import { Link, useNavigate } from "react-router-dom";
 import { TransactionCard } from "../../components/card/TransactionCard";
 import { useEffect } from "react";
@@ -46,7 +46,7 @@ const Dashboard = ({ tranactions, user }) => {
         <Row>
           <Col>
             <div className="d-flex">
-              <img src={avatar} alt="avatar" width="90px" height="80px" />
+              <img src={person} alt="avatar" width="90px" height="80px" />
               <div className="mx-3">
                 <h4 className="text-center">Welcome!</h4>
                 <h2 className="fw-bold"> {user?.name}</h2>
