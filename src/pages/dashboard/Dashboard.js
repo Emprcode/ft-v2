@@ -46,7 +46,7 @@ const Dashboard = ({ tranactions, user }) => {
         <Row>
           <Col>
             <div className="d-flex">
-              <img src={person} alt="avatar" width="90px" height="80px" />
+              <img src={person} alt="avatar" width="80px" height="80px" />
               <div className="mx-3">
                 <h4 className="text-center">Welcome!</h4>
                 <h2 className="fw-bold"> {user?.name}</h2>
