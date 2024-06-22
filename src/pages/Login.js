@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { Row, Col, Container, Form, Button } from "react-bootstrap";
-import { FormComponents } from "../components/formComponents/FormComponents";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../components/helper/axiosHelper";
 import { toast } from "react-toastify";
+import { FormComponents } from "../components/formComponents/FormComponents";
+import { loginUser } from "../components/helper/axiosHelper";
 
 const Login = () => {
   const emailRef = useRef()
@@ -45,7 +45,7 @@ const Login = () => {
    }
   }
 
-  
+
 
   return (
     <div className="bg-color d-flex justify-content-center align-items-center">
