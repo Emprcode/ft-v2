@@ -6,10 +6,10 @@ import { FormComponents } from "../components/formComponents/FormComponents";
 import { loginUser } from "../components/helper/axiosHelper";
 
 const Login = () => {
-  const emailRef = useRef()
-  const passRef = useRef()
+  const emailRef = useRef();
+  const passRef = useRef();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const inputs = [
     {
       email: "email",
@@ -17,7 +17,7 @@ const Login = () => {
       label: "Email",
       placeholder: "Jack@gmail.com",
       required: true,
-      forwardRef:emailRef
+      forwardRef: emailRef,
     },
     {
       name: "password",
@@ -25,27 +25,25 @@ const Login = () => {
       label: "Password",
       placeholder: "*****",
       required: true,
-      forwardRef:passRef
+      forwardRef: passRef,
     },
   ];
 
-  const handleOnSubmit = async e => {
-    e.preventDefault()
-    const obj={
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const obj = {
       email: emailRef.current.value,
-      password : passRef.current.value
+      password: passRef.current.value,
+    };
+    const { status, message, result } = await loginUser(obj);
+    console.log(result);
+    toast[status](message);
+    if (status === "success" && result?._id) {
+      sessionStorage.setItem("user", JSON.stringify(result));
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/dashboard");
     }
-    const {status, message, result} = await loginUser(obj)
-    console.log(result)
-   toast[status](message)
-   if (status === "success" && result?._id) {
-    sessionStorage.setItem("user", JSON.stringify(result))
-    localStorage.setItem("user", JSON.stringify(result))
-    navigate("/dashboard")
-   }
-  }
-
-
+  };
 
   return (
     <div className="bg-color d-flex justify-content-center align-items-center">
@@ -55,7 +53,7 @@ const Login = () => {
           {/* <hr /> */}
           <Col className=" p-5 text-center fw-bold">
             <div className="p-5">
-              <h1 className=" title mb-3 fw-bold"> Finance Tracker</h1>
+              <h1 className=" title mb-3 fw-bold"> hTack</h1>
 
               <p> Please Login Here </p>
             </div>
@@ -68,9 +66,9 @@ const Login = () => {
                   <FormComponents key={i} {...item} />
                 ))}
 
-<Button className="button mt-3 " type="submit">
-                Submit
-              </Button>
+                <Button className="button mt-3 " type="submit">
+                  Submit
+                </Button>
                 <hr />
                 <div className="text-end">
                   {/* <h5> New User?</h5> */}

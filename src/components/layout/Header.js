@@ -11,7 +11,7 @@ export const Header = () => {
     <Navbar bg="" expand="md">
       <Container className="p-2">
         <Navbar.Brand href="/dashboard">
-          <h2 className="logo"> Finance Tracker</h2>
+          <h2 className="logo">hTack</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
