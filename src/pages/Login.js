@@ -47,20 +47,20 @@ const Login = () => {
 
   return (
     <div className="bg-color d-flex justify-content-center align-items-center">
-      <Container className="p-5 ">
+      <Container className="p-4">
         <Row className="mt-3 shadow-lg flex-wrap">
           {/* <h4 className="text-center"></h4> */}
           {/* <hr /> */}
-          <Col className=" p-5 text-center fw-bold">
-            <div className="p-5">
-              <h1 className=" title mb-3 fw-bold"> hTack</h1>
+          <Col className="d-flex justify-content-center align-items-center ">
+            <div className="">
+              <h1 className="p-3 fw-bold"> BudgetBuddy</h1>
 
-              <p> Please Login Here </p>
+              <p className="text-center"> Manage your budget with us</p>
             </div>
           </Col>
           <Col className="mx-4 p-5">
             {/* <h4 className="mx-4 p-3 fw-bold">Login</h4> */}
-            <div className="p-5">
+            <div className="">
               <Form onSubmit={handleOnSubmit}>
                 {inputs.map((item, i) => (
                   <FormComponents key={i} {...item} />

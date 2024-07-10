@@ -9,9 +9,9 @@ export const Header = () => {
   };
   return (
     <Navbar bg="" expand="md">
-      <Container className="p-2">
+      <Container className="p-1">
         <Navbar.Brand href="/dashboard">
-          <h2 className="logo">hTack</h2>
+          <h2 className="logo">BudgetBuddy</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

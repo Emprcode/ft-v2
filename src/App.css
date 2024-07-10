@@ -1,23 +1,21 @@
-.main{
+.main {
   min-height: 75vh;
 }
 
-.bg-color{
+.bg-color {
   background: #e9ecef;
   min-height: 100vh;
 }
 
-
-.button{
+.button {
   width: 7rem;
   height: 3rem;
   color: white;
   border-width: 2px;
   border-style: solid;
-  background-color:  rgba(17, 17, 206, 0.854);
+  background-color: rgba(17, 17, 206, 0.854);
   transition: 0.3s background-color linear, 0.1s color linear;
   border-radius: 200px !important;
-  
 
   display: flex;
   justify-content: center;
@@ -26,33 +24,34 @@
   cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
   /* border-color: greenyellow; */
   background-color: rgb(10, 122, 167);
-  
-  transition: 0.5s ;
+
+  transition: 0.5s;
   transform: scale(1);
   opacity: 0.8;
 }
 
-.title{
-  font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 52px;
-    
-    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    color: currentColor;
-    letter-spacing: 0;
-    margin: 1;
-    width: 100%;
-    /* text-align: center; */
-    /* margin-left: 4rem */
+.title {
+  font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif !important;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 52px;
+
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: currentColor;
+  letter-spacing: 0;
+  margin: 1;
+  width: 100%;
+  /* text-align: center; */
+  /* margin-left: 4rem */
 }
 
-.cardcss{
-cursor: pointer;
-transition: box-shadow 0.3s ease-in-out;
+.cardcss {
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .cardcss:hover {

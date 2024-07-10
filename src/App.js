@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/dashboard/Dashboard';
-import AddTransaction from './pages/addTransaction/AddTransaction';
-import Transactions from './pages/transactions/Transactions';
-import { ToastContainer } from 'react-toastify';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/dashboard/Dashboard";
+import AddTransaction from "./pages/addTransaction/AddTransaction";
+import Transactions from "./pages/transactions/Transactions";
+import { ToastContainer } from "react-toastify";
 import React, { useEffect, useState } from "react";
-import { getTransactions } from './components/helper/axiosHelper';
-import Account from './pages/account/Account';
+import { getTransactions } from "./components/helper/axiosHelper";
+import Account from "./pages/account/Account";
 
 function App() {
   const [user, setuser] = useState({});
@@ -18,7 +18,6 @@ function App() {
   useEffect(() => {
     userStorge();
     fetchTransactions();
-
   }, []);
 
   const userStorge = () => {
@@ -29,28 +28,39 @@ function App() {
     }
   };
   const fetchTransactions = async () => {
-    const { status, message, result } = await getTransactions();
-    console.log(status, message);
+    const { status, result } = await getTransactions();
 
     status === "success" && setTransactions(result);
   };
 
-  
   return (
     <div className="App">
       <BrowserRouter>
-      <Routes>
-        <Route path ="/" element={<Login/>}/>
-        <Route path ="/register" element={<Register/>}/>
-        <Route path ="/dashboard" element={<Dashboard user={user} tranactions={tranactions}/>}/>
-        <Route path ="/add-transaction" element={<AddTransaction/>}/>
-        <Route path ="/transactions" element={<Transactions tranactions={tranactions} fetchTransactions={fetchTransactions} />}/>
-        <Route path ="/account" element={<Account user={user} />}/>
-        <Route path="*" element={<h1 className='text-center p-5'>404 page not found...</h1>} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard user={user} tranactions={tranactions} />}
+          />
+          <Route path="/add-transaction" element={<AddTransaction />} />
+          <Route
+            path="/transactions"
+            element={
+              <Transactions
+                tranactions={tranactions}
+                fetchTransactions={fetchTransactions}
+              />
+            }
+          />
+          <Route path="/account" element={<Account user={user} />} />
+          <Route
+            path="*"
+            element={<h1 className="text-center p-5">404 page not found...</h1>}
+          />
+        </Routes>
       </BrowserRouter>
-      <ToastContainer/>
-     
+      <ToastContainer />
     </div>
   );
 }

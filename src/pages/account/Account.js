@@ -17,7 +17,6 @@ const Account = ({ user }) => {
       window.confirm("are you sure you want to permanently delete the account?")
     ) {
       const { status, message } = await deleteUser(user);
-      console.log(status, message);
       toast[status](message);
       if (status === "success") {
         navigate("/");
